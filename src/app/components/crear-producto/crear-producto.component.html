@@ -1,0 +1,87 @@
+<div class = "row">
+  <div class="col-md-6">
+    <a class="btn btn-link" routerLink="/" href="#">
+      <i class="fa fa-arrow-circle-o-left"></i> Volver a lista.
+    </a>
+  </div>
+  <div class="col-md-6">
+    <!-- Espacio en blanco intencional para simetria -->
+  </div>
+
+<div class="card col-md-6">
+  <div class="card-header">
+    Agregar un nuevo producto
+  </div>
+  <div class="card-body">
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <!--Nombre-->
+        <label for="nombre">Nombre del Producto</label>
+        <input 
+          type="text"
+          class="form-control"
+          [ngClass] = "{'is-invalid': productoNombre.errors?.required && producto.nombre.touched || productoNombre.errors?.minlength && producto.nombre.touched}"
+          [(ngModel)] = "producto.nombre"
+          name = "nombre"
+          #productoNombre = "ngModel"
+          required
+        >
+      </div>
+        <!--Categoria-->
+        <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <input 
+            type="text"
+            class="form-control"
+            [(ngModel)] = "producto.categoria"
+            name = "categoria"
+            #productoCategoria = "ngModel"
+            required
+          >
+        </div>
+        
+        <!--Tipo-->
+        <div class="form-group">
+            <label for="tipo">Tipo</label>        
+            <br>
+            <input 
+            type="text"
+            class="form-control"
+            [(ngModel)] = "producto.tipo"
+            name = "tipo"
+            #productoTipo = "ngModel"
+            required
+          >
+            <br>
+        </div>
+        <!--Descripcion-->
+        <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <input 
+            type="text"
+            class="form-control"
+            [(ngModel)] = "producto.descripcion"
+            name = "descripcion"
+            #productoDescripcion = "ngModel"
+            required
+          >
+            <br>
+        </div>
+        <!--Precio -->
+        <div class="form-group">
+            <label for="precio">Precio en $</label>
+            <input 
+              type="text"
+              class="form-control"
+              [(ngModel)] = "producto.precio"
+              name = "precio"
+              #productoPrecio = "ngModel"
+            >
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,38 @@
+<div class="row">
+  
+  <div class="col-md-6">
+    <h2><i class="fa fa-coffee" aria-hidden="true"></i>  Productos</h2>
+  </div>
+  
+  <div class="col-,d-6">
+    <h5 class="text-rigth text-secondary">   Preico promedio: {{precioPromedio | currency:"USD":symbol}} </h5>
+  </div>
+
+</div>
+
+<table *ngIf="productos?.length > 0;else noProductos"  class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Producto</th>
+      <th>Categortia</th>
+      <th>Precio</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor=" let producto of productos">
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.categoria}}</td>
+      <td>{{producto.precio | currency:"USD":symbol}}</td>
+      <td><a [routerLink]="['/producto/'+producto.key]" class="btn btn-secondary btn-sm"> <i class="fa fa-arrow-circle-o-rigth"> </i> Detalles</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noProductos>
+  <hr>
+  <h5>
+    No hay productos en la tienda en este momento.
+  </h5>
+</ng-template>
+

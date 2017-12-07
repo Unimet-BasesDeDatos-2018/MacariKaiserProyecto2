@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-link" routerLink="/" href="#">
+          <i class="fa fa-arrow-circle-o-left"></i> Volver a lista.
+        </a>
+    </div>
+    <div class="col-md-6">
+      <div class="btn-group pull-rigth">
+        <a [routerLink]="['/editar-producto/'+id]" class = "btn btn-dark">Editar</a>
+        <button class="btn btn-danger pull-rigth" (click)="onClickDelete()" >Eliminar </button>
+      </div>
+    </div>
+</div>
+
+<hr>
+<div *ngIf="producto" class="card">
+  <h3 class="card-header">
+    <strong>{{producto.nombre}}</strong>
+  </h3>
+  <div class="card-body">
+    <div class="row">
+
+      <div class="col-md-8">
+        <h4><strong>ID del producto:</strong>  {{id}}</h4>
+      </div>
+
+      <div class="col-md-4">
+        <h3 class="pull-rigth">
+        </h3>
+      </div>
+
+    </div>
+
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Categoria:</strong> {{producto.categoria}}</li>
+      <li class="list-group-item"><strong>Tipo:</strong> {{producto.tipo}}</li>
+      <li class="list-group-item"><strong>Descripcion:</strong> {{producto.descripcion}}</li>
+      <li class="list-group-item"><strong>Precio:</strong> $ {{producto.precio}}</li>
+    </ul>
+  </div>
+</div>
